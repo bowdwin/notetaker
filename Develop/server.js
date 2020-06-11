@@ -7,29 +7,25 @@ const http = require("http");
 //require express for server
 const express = require("express");
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+
+//not sure this is required here
 const fs = require("fs");
 
-// Sets up the Express app to handle data parsing
+const htmlRoutes = require("./routes/htmlRoutes");
+const apiRoutes = require("./routes/apiRoutes");
+
+//set up middleware to hand POST DATA
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // GET /notes - Should return the notes.html file.
-// const handleRequest = (req, resp) => {
-//   if (req.url === "/notes") {
-//     //TODO do something
-//   }
-// };
-// app.get("/notes", (req, res) => {
-//   res.send("notes page");
-// });
+app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
 
-// app.get("/index", (req, res) => {
-//   res.send("indexpage");
-// });
-//send message on what port it's listening on
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
+
 //function to get data in notes
 // const notesData = (response) => {};
 
