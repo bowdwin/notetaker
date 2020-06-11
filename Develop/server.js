@@ -1,29 +1,19 @@
-// TODO: create the Service
-// TODO: Create html routes
-// TODO : Create api routes
-
-//require http to hand http request
-const http = require("http");
-//require express for server
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 8080;
-
-//not sure this is required here
-const fs = require("fs");
+const PORT = 8080;
 
 const htmlRoutes = require("./routes/htmlRoutes");
 const apiRoutes = require("./routes/apiRoutes");
 
-//set up middleware to hand POST DATA
+// set up our middleware to handle POST data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// GET /notes - Should return the notes.html file.
-app.use("/api", apiRoutes);
+
+// app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+  console.log(`Server listening at http://localhost:${PORT}`);
 });
 
 //function to get data in notes
