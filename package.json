@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bowdwin/notetaker/issues"
   },
-  "homepage": "https://github.com/bowdwin/notetaker#readme"
+  "homepage": "https://github.com/bowdwin/notetaker#readme",
+  "dependencies": {
+    "uuid": "^8.1.0"
+  }
 }
