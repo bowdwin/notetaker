@@ -2,24 +2,28 @@ const express = require("express");
 const router = require("express").Router();
 const path = require("path");
 const fs = require("fs");
-const db = path.join(__dirname, "../db/db.json");
+const json = path.join(__dirname, "../db/db.json");
+// router.use(express.json());
 //to generate a specifi number for the notes
 const { v4: uuidv4 } = require("uuid");
 // example uuidv4(); // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
 
-console.log(db, "db console.log");
+console.log(json, "json console.log");
 //might need these arrays
 const postNotes = [];
 const waitListData = [];
 // POST /api/notes - Should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client.
 
 //required for parsing the data from jsons
-router.use(express.urlencoded({ extended: true }));
+// router.use(express.urlencoded({ extended: true }));
+
+// router.get("/notes", (req, res) => res.sendFile(postNotes)); //not sure on this
 
 router.get("/notes", (req, res) => {
-  let savedNotes = JSON.parse(fs.readFileSync(db));
-  console.log(savedNotes);
-  // res.json(db);
+  let jsonParse = JSON.parse(fs.readFileSync(json));
+  console.log(jsonParse, "jsonParse variable");
+  res.json(postNotes);
+
   console.log("router.get was hit inside router.get apiRoutes.js");
 });
 
@@ -27,7 +31,7 @@ router.get("/notes", (req, res) => {
 
 //when the user hits the dave button
 router.post("/notes", (req, res) => {
-  console.log(req.body);
+  console.log(req.body, "added something ");
 });
 
 module.exports = router;
