@@ -17,18 +17,20 @@ const waitListData = [];
 router.use(express.urlencoded({ extended: true }));
 
 router.get("/notes", (req, res) => {
-  let savedNOtes = JSON.parse(fs.readFileSync(db));
-  console.log("savedNOtes");
+  let savedNotes = JSON.parse(fs.readFileSync(db));
+  console.log(savedNotes);
   // res.json(db);
   console.log("router.get was hit inside router.get apiRoutes.js");
 });
 
-module.exports = router;
 // router.get("/notes", (req, res) => {});
 
-// router.post("/notes", (req, res) => {
-//   console.log(req.body);
-// });
+//when the user hits the dave button
+router.post("/notes", (req, res) => {
+  console.log(req.body);
+});
+
+module.exports = router;
 
 // router.get("/tables", (req, res) => {
 //   res.json(tableData);
