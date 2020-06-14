@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.",
   "main": "server.js",
+  "engines": {
+    "node": "v13.x"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +22,5 @@
   "homepage": "https://github.com/bowdwin/notetaker#readme",
   "dependencies": {
     "uuid": "^8.1.0"
-  },
-  "engines": {
-    "node": "v13.11.0"
+  }
 }
