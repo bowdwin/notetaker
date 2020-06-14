@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/bowdwin/notetaker#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "uuid": "^8.1.0"
   }
 }
