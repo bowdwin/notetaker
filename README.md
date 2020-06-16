@@ -2,9 +2,13 @@
 
 Note take application
 
-## Current Issues
+# Deployed at
 
-    - issue deploying to heroku currently
+https://stark-bayou-10196.herokuapp.com/
+
+## Current bugs/issues
+
+    - None
 
 ## About / Synopsis
 
